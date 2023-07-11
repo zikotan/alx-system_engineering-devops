@@ -1,0 +1,2 @@
+$scrpt
+ls $PATH | wc -l
