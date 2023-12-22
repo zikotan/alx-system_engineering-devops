@@ -1,0 +1,3 @@
+# stop a certain process
+
+kill -9 "$(pgrep -f 7-highlander)"
