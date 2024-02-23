@@ -1,11 +1,5 @@
-# Install puppet-lint version 2.5.0
-package { 'puppet-lint':
-    ensure => '2.5.0',
-    provider => 'apt',
-    require => Exec['update apt'],
-}
+# install puppet-lint -v 2.5.0
 
-exec { 'update apt':
-    command => '/usr/bin/apt-get update',
-    refreshonly => true,
+exec { 'puppet-lint':
+    command => '/usr/bin/apt-get -y install puppet-lint -v 2.5.0',
 }
