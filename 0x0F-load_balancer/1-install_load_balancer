@@ -30,3 +30,7 @@ sudo haproxy -c -f /etc/haproxy/haproxy.cfg
 
 # Restart the Nginx service
 sudo service haproxy restart
+
+echo "Your lb-01 server is configured to distribute traffic to the following servers:"
+echo "web-01 (34.239.248.211)"
+echo "web-02 (18.234.107.30)"
