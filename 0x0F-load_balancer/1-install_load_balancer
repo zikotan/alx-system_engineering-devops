@@ -32,5 +32,5 @@ sudo haproxy -c -f /etc/haproxy/haproxy.cfg
 sudo service haproxy restart
 
 echo "Your lb-01 server is configured to distribute traffic to the following servers:"
-echo "web-01 (34.239.248.211)"
-echo "web-02 (18.234.107.30)"
+echo "477180-web-01-34.239.248.211"
+echo "477180-web-02-18.234.107.30"
