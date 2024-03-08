@@ -41,7 +41,7 @@ frontend king1-frontend
         default_backend king1-backend
 
 frontend king1-frontend-https
-        bind *:443 ssl crt /etc/haproxy/certs/king1.tech.pem
+        bind *:443 ssl crt /etc/haproxy/certs/www.king1.tech.pem
         http-request set-header X-Forwarded-Proto https
         default_backend king1-backend
 
@@ -49,4 +49,3 @@ backend king1-backend
         balance roundrobin
         server 477180-web-01 34.239.248.211:80 check
         server 477180-web-02 18.234.107.30:80 check
-
