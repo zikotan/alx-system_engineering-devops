@@ -1,0 +1,14 @@
+---
+- name: Execute Script on Remote Server
+  hosts: 34.239.248.211
+  become: true
+  tasks:
+    - name: Copy script file to remote server
+      copy:
+        src: ufw_setup  # Specify the path to your script file
+        dest: /tmp/ufw_setup  # Destination path on the remote server
+        mode: 0755  # Ensure the script is executable
+
+    - name: Execute script on remote server
+      command: /tmp/ufw_setup
+
