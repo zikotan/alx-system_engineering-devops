@@ -6,7 +6,7 @@ This module contains the function number_of_subscribers.
 import requests
 from sys import argv
 
-def get_subreddit_subscribers(subreddit):
+def number_of_subscribers(subreddit):
     """
     Returns the number of subscribers for a given subreddit.
     """
@@ -29,6 +29,6 @@ if __name__ == "__main__":
         print("Usage: python3 script.py <subreddit>")
     else:
         subreddit = argv[1]
-        subscribers = get_subreddit_subscribers(subreddit)
+        subscribers = number_of_subscribers(subreddit)
         if subscribers is not None:
             print(f"Number of subscribers in r/{subreddit}: {subscribers}")
