@@ -1,34 +1,23 @@
 #!/usr/bin/python3
 """
-This module contains the function number_of_subscribers.
+    this module contains the function number_of_subscribers
 """
-
 import requests
 from sys import argv
 
+
 def number_of_subscribers(subreddit):
     """
-    Returns the number of subscribers for a given subreddit.
+        returns the number of subscribers for a given subreddit
     """
-    headers = {'User-Agent': 'Lizzie'}
-    url = 'https://www.reddit.com/r/{}/about.json'.format(subreddit)
+    user = {'User-Agent': 'Lizzie'}
+    url = requests.get('https://www.reddit.com/r/{}/about.json'
+                       .format(subreddit), headers=user).json()
     try:
-        response = requests.get(url, headers=headers)
-        response.raise_for_status()  # Raise HTTPError for bad responses
-        data = response.json()
-        return data['data']['subscribers']
-    except requests.exceptions.RequestException as e:
-        print(f"Error fetching subreddit information: {e}")
-        return None
-    except KeyError:
-        print(f"Invalid subreddit name: {subreddit}")
-        return None
+        return url.get('data').get('subscribers')
+    except Exception:
+        return 0
+
 
 if __name__ == "__main__":
-    if len(argv) != 2:
-        print("Usage: python3 script.py <subreddit>")
-    else:
-        subreddit = argv[1]
-        subscribers = number_of_subscribers(subreddit)
-        if subscribers is not None:
-            print(f"Number of subscribers in r/{subreddit}: {subscribers}")
+    number_of_subscribers(argv[1])
