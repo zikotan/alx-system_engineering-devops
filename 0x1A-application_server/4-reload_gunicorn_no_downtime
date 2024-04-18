@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-# Gracefully reloads Gunicorn
+# Reload gunicorn worker processes gracefully, with no downtime
 
-pgrep gunicorn | xargs kill -HUP
+kill -HUP `ps -C gunicorn fch -o pid | head -n 1`
